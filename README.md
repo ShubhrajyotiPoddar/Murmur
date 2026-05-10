@@ -86,7 +86,7 @@ Murmur/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/murmur.git
+git clone https://github.com/ShubhrajyotiPoddar/Murmur.git
 cd murmur
 ```
 
