@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Murmur — Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--beige-100);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .login-wrap {
+      width: 100%;
+      max-width: 520px;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* logo mark */
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--sand);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-name {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--warm-dark);
+      letter-spacing: -0.3px;
+    }
+
+    .logo-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: -6px;
+    }
+
+    /* card */
+    .login-card {
+      width: 100%;
+      background: var(--beige-50);
+      border: 0.5px solid var(--beige-300);
+      border-radius: 18px;
+      padding: 32px 28px 28px;
+      box-shadow: 0 4px 28px rgba(61, 51, 40, 0.08);
+    }
+
+    .card-title {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--warm-dark);
+      margin-bottom: 6px;
+    }
+
+    .card-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* fields */
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .field-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: var(--beige-100);
+      border: 0.5px solid var(--beige-300);
+      border-radius: 10px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .field-wrap:focus-within {
+      border-color: var(--sand);
+      background: var(--beige-50);
+    }
+
+    .field-icon {
+      position: absolute;
+      left: 12px;
+      color: var(--text-muted);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .field input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 12px 10px 38px;
+      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--warm-dark);
+      outline: none;
+      min-width: 0;
+    }
+
+    .field input::placeholder { color: var(--text-muted); }
+
+    .toggle-pw {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px 0 4px;
+      height: 100%;
+      transition: color 0.15s;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .toggle-pw:hover { color: var(--text-secondary); }
+
+    .forgot {
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 22px;
+    }
+
+    .forgot a {
+      font-size: 11px;
+      color: var(--sand-dark);
+      text-decoration: none;
+    }
+
+    .forgot a:hover { text-decoration: underline; }
+
+    /* login button */
+    .btn-login {
+      width: 100%;
+      padding: 11px;
+      background: var(--sand);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.2px;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .btn-login:hover  { background: var(--sand-hover); }
+    .btn-login:active { transform: scale(0.985); }
+
+    .divider-or {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .divider-or span {
+      font-size: 11px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .divider-or::before,
+    .divider-or::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--beige-300);
+    }
+
+    .register-row {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .register-row a {
+      color: var(--sand-dark);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .register-row a:hover { text-decoration: underline; }
+
+    /* made with love */
+    .byline {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .byline .heart {
+      color: #e07070;
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .byline strong {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-wrap">
+
+  <!-- logo -->
+  <div class="logo">
+    <div class="logo-icon">
+      <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </div>
+    <div class="logo-name">Murmur</div>
+    <div class="logo-tagline">quiet conversations, loud connections</div>
+  </div>
+
+  <!-- card -->
+  <div class="login-card">
+    <div class="card-title">Welcome back</div>
+    <div class="card-sub">Sign in to your account to continue</div>
+
+    <div class="field">
+      <label for="username">Username</label>
+      <div class="field-wrap">
+        <span class="field-icon">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </span>
+        <input id="username" type="text" placeholder="Enter your username" autocomplete="username" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <div class="field-wrap">
+        <span class="field-icon">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </span>
+        <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" />
+        <button class="toggle-pw" onclick="togglePw()" type="button" id="pw-toggle" title="Show password">
+          <svg id="eye-icon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <button class="btn-login" onclick="handleLogin()">Login</button>
+
+    <div class="divider-or"><span>or</span></div>
+
+    <div class="register-row">
+      Don't have an account? <a href="#">Register</a>
+    </div>
+  </div>
+
+  <!-- byline -->
+  <div class="byline">
+    made with <span class="heart">♥</span> by <strong>Shubhra</strong>
+  </div>
+
+</div>
+
+<script>
+  function togglePw() {
+    var input = document.getElementById('password');
+    var icon  = document.getElementById('eye-icon');
+    var isHidden = input.type === 'password';
+    input.type = isHidden ? 'text' : 'password';
+    icon.innerHTML = isHidden
+      ? '<line x1="1" y1="1" x2="23" y2="23"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07A3 3 0 0 1 9.34 9.34M10.73 5.08A10.05 10.05 0 0 1 12 5c7 0 10 7 10 7a18.77 18.77 0 0 1-5.1 5.93M6.53 6.53A10 10 0 0 0 2 12s3 7 10 7a9.15 9.15 0 0 0 5.47-1.86"/>'
+      : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+  }
+
+  function handleLogin() {
+    var u = document.getElementById('username').value.trim();
+    var p = document.getElementById('password').value;
+    var btn = document.querySelector('.btn-login');
+    if (!u || !p) {
+      btn.style.background = '#c0392b';
+      btn.textContent = 'Fill in both fields';
+      setTimeout(function() {
+        btn.style.background = '';
+        btn.textContent = 'Login';
+      }, 1800);
+      return;
+    }
+    btn.textContent = 'Signing in…';
+    btn.style.opacity = '0.75';
+    setTimeout(function() {
+      window.location.href = 'index.html';
+    }, 900);
+  }
+
+  /* allow Enter key to submit */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handleLogin();
+  });
+</script>
+
+</body>
+</html>
