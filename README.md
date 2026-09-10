@@ -3,7 +3,7 @@
 
 **Murmur** is a high-performance, full-stack messaging application designed with a focus on real-time communication, automated lifecycle management, and scalable cloud deployment. Built using a modern TypeScript stack, it demonstrates an end-to-end architecture from secure backend services to a responsive, state-driven frontend.
 
-🔗 **[Live Demo](http://140.245.204.147/)**
+**[Live Demo](http://140.245.204.147/)**
 
 ---
 
@@ -109,7 +109,7 @@ npm run dev
 
 ---
 
-## ☁️ Deployment Note
+## Deployment Note
 
 This project is deployed on an **Oracle Cloud VM**. Leveraging my background as an **OCI Cloud Architect Associate**, the infrastructure was manually provisioned and configured for optimal performance, including:
 - Configuring Virtual Cloud Networks (VCNs) and Security Lists.
