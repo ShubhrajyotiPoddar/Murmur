@@ -1,4 +1,4 @@
-# Murmur 🕊️
+# Murmur
 ### Secure, Real-Time Messaging Architecture
 
 **Murmur** is a high-performance, full-stack messaging application designed with a focus on real-time communication, automated lifecycle management, and scalable cloud deployment. Built using a modern TypeScript stack, it demonstrates an end-to-end architecture from secure backend services to a responsive, state-driven frontend.
@@ -7,7 +7,7 @@
 
 ---
 
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 The system follows a decoupled architecture, optimized for performance and reliability:
 
@@ -19,7 +19,7 @@ The system follows a decoupled architecture, optimized for performance and relia
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - **Real-Time Communication:** Instant message delivery using WebSockets with Redis fallback logic.
 - **Automated Lifecycle Management:** A built-in cleanup service that prunes expired media and synchronizes database state.
@@ -30,7 +30,7 @@ The system follows a decoupled architecture, optimized for performance and relia
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Language:** TypeScript
@@ -55,7 +55,7 @@ The system follows a decoupled architecture, optimized for performance and relia
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 Murmur/
@@ -77,7 +77,7 @@ Murmur/
 
 ---
 
-## 🚀 Local Setup
+## Local Setup
 
 ### Prerequisites
 - Node.js (v18+)
@@ -118,7 +118,7 @@ This project is deployed on an **Oracle Cloud VM**. Leveraging my background as 
 
 ---
 
-## 📄 License
+## License
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
